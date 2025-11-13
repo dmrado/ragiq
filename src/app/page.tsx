@@ -1,101 +1,84 @@
-import Image from "next/image";
+import Image from "next/image"
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const Home = () => {
+                const features = [
+          {
+              title: "Интеллектуальный поиск",
+              description:
+              "Система понимает запросы на естественном языке и ищет ответы в документах."
+          },
+          {
+              title: "Сравнение документов",
+              description:
+              "Автоматическое сопоставление ТЗ с инструкциями к препаратам."
+          },
+          {
+              title: "Фармакоэкономическая аналитика",
+              description:
+              "Оценка эффективности и стоимости лекарственных решений."
+          },
+          {
+              title: "Рекомендации ИИ",
+              description:
+              "Формирует предложения и обоснования на основе релевантных данных."
+          }
+          ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          return <>
+          <main className="min-h-screen bg-gray-50 flex flex-col items-center p-6">
+
+              <Image
+                  className="dark:invert"
+                  src="https://nextjs.org/icons/next.svg"
+                  alt="Next.js logo"
+                  width={180}
+                  height={38}
+                  priority
+              />
+
+
+              {/* Hero section */}
+          <section className="text-center max-w-3xl my-16">
+              <h1 className="text-5xl font-bold text-secondary mb-4">RAGIQ</h1>
+              <p className="text-lg text-gray-700">
+                  Интеллектуальная платформа для анализа фармацевтических закупок и
+                  фармакоэкономических данных.
+              </p>
+          </section>
+
+          {/* Features section */}
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full my-16">
+              {features.map((feature) => (
+                  <div
+                      key={feature.title}
+                      className="bg-white rounded-xl shadow p-6 hover:shadow-lg transition"
+                  >
+                      <h3 className="text-xl font-semibold text-secondary mb-2">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                  </div>
+              ))}
+          </section>
+
+          {/* Our mission */}
+          <section className="max-w-3xl text-center my-16">
+              <h2 className="text-3xl text-secondary font-bold mb-4">Наша миссия</h2>
+              <p>Миссия RAGIQ — сделать анализ фармацевтических закупок прозрачным, точным и интеллектуально поддержанным.
+                  Мы объединяем технологии Retrieval-Augmented Generation с отраслевой экспертизой,
+                  чтобы помочь специалистам принимать быстрые и обоснованные решения.</p>
+          </section>
+
+          {/* How it works */}
+          <section className="max-w-3xl text-center my-16">
+              <h2 className="text-3xl text-secondary font-bold mb-4">Как это работает</h2>
+              <p className="text-gray-700">
+                  RAGIQ использует технологии Retrieval-Augmented Generation (RAG) и
+                  внутренние базы данных, чтобы быстро извлекать релевантную
+                  информацию из документов, сравнивать ТЗ с инструкциями к препаратам
+                  и формировать аналитические рекомендации. RAGIQ помогает экспертам
+                  экономить время, снижать ошибки и принимать решения, основанные на фактах.
+              </p>
+          </section>
+          </main>
+    </>
 }
+      export default Home

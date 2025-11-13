@@ -3,25 +3,95 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #262626;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #fcfbfb;
+        --foreground: #313131;
+    }
+}
+ё
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+#___next { /* Или корневой элемент вашего приложения */
+    min-height: 100vh;
 }
+
+html,
+body {
+    overflow-x: hidden; /*убирает горизонтальный скролл везде*/
+    height: 100%;
+    width: 100%; /*устанавливает ширину элементов html и body равной 100% от доступной ширины окна браузера.*/
+    position: relative;
+    accent-color: #f59e0b;
+    ::-webkit-scrollbar {
+        display: none;
+    } /*убирает вертикальный скролл везде только в хром*/
+    scrollbar-gutter: stable; /* резервирует место под полосу прокрутки, даже если она не нужна, чтобы предотвратить сдвиг*/
+}
+
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/*стрелки*/
+.clip-path-arrow {
+    clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%);
+}
+
+/*button_blue_____________________________________*/
+.button_blue {
+    /* Добавляем flex и justify-center, items-center */
+    @apply relative mx-2 flex justify-center items-center px-4 py-2 text-[#0285d5] border-2 border-transparent transition-colors ease-in-out duration-300;
+}
+
+.button_blue::before {
+    content: '';
+    @apply absolute top-[-2px] left-[-2px] right-[-2px] bottom-[-2px] border-2 border-transparent transition-colors ease-in-out duration-300 rounded;
+}
+
+.button_blue:hover::before {
+    @apply border-[#0285d5] rounded;
+}
+
+/*button_red______________________________________*/
+.button_red {
+    /* Добавляем flex и justify-center, items-center */
+    @apply relative mx-2 flex justify-center items-center px-4 py-2 text-[#D50000] border-2 border-transparent transition-colors ease-in-out duration-300;
+}
+
+.button_red::before {
+    content: '';
+    @apply absolute top-[-2px] left-[-2px] right-[-2px] bottom-[-2px] border-2 border-transparent transition-colors ease-in-out duration-300 rounded;
+}
+
+.button_red:hover::before {
+    @apply border-[#D50000] rounded;
+}
+
+/*button_green___________________________________*/
+.button_green {
+    /* Добавляем flex и justify-center */
+    @apply relative mx-2 flex justify-center items-center px-4 py-2 text-[#02bb5f] border-2 border-transparent transition-colors ease-in-out duration-300;
+}
+
+.button_green::before {
+    content: '';
+    @apply absolute top-[-2px] left-[-2px] right-[-2px] bottom-[-2px] border-2 border-transparent transition-colors ease-in-out duration-300 rounded;
+}
+
+.button_green:hover::before {
+    @apply border-[#02bb5f] rounded;
 }
