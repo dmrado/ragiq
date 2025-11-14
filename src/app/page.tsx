@@ -39,7 +39,7 @@ const Home = () => {
 
               {/* Hero section */}
           <section className="text-center max-w-3xl my-16">
-              <h1 className="text-5xl font-bold text-secondary mb-4">RAGIQ</h1>
+              <h1 className="text-5xl font-bold text-secondary mb-4">RagIQ</h1>
               <p className="text-lg text-gray-700">
                   Интеллектуальная платформа для анализа фармацевтических закупок и
                   фармакоэкономических данных.
